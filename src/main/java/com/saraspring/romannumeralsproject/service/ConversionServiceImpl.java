@@ -11,6 +11,8 @@ public class ConversionServiceImpl implements ConversionService {
     romanNumeral = initialValidationAndClean(romanNumeral);
 
 
+
+
     return 2;
   }
 
@@ -31,6 +33,11 @@ public class ConversionServiceImpl implements ConversionService {
       throw new InvalidInputException("Roman numeral input cannot be longer than 15 characters");
     }
 
+    if(!(romanNumeral.matches("^[IVXLCDM]+$"))) {
+      throw new InvalidInputException("Roman numeral input must contain only valid Roman numeral characters");
+    }
+
+
   return romanNumeral;
 
   }
@@ -46,6 +53,8 @@ public class ConversionServiceImpl implements ConversionService {
     }
 
     romanNumeral = romanNumeral.trim();
+
+    romanNumeral = romanNumeral.toUpperCase();
 
     return romanNumeral;
   }
