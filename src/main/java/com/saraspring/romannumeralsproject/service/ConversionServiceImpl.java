@@ -121,7 +121,7 @@ public class ConversionServiceImpl implements ConversionService {
 
 
   private String initialValidationAndClean(String romanNumeral) {
-    if(!(romanNumeral instanceof String)) {
+    if(romanNumeral == null) {
       throw new InvalidInputException("Roman numeral input must be a non-null string");
     }
 
@@ -148,10 +148,6 @@ public class ConversionServiceImpl implements ConversionService {
   private String cleanString(String romanNumeral) {
     if(romanNumeral.isEmpty()) {
       return romanNumeral;
-    }
-
-    if(romanNumeral.charAt(0)=='\"' && romanNumeral.charAt(romanNumeral.length()-1)=='\"') {
-      romanNumeral = romanNumeral.substring(1, romanNumeral.length()-1);
     }
 
     romanNumeral = romanNumeral.trim();
