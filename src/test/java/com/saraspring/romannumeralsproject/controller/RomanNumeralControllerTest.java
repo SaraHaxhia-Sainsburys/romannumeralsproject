@@ -20,7 +20,7 @@ class RomanNumeralControllerTest {
   private MockMvc mockMvc;
 
   @MockitoBean
-  ConversionService conversionService;
+  private ConversionService conversionService;
 
 @Test
   void invalidInputShouldReturn400() throws Exception{
